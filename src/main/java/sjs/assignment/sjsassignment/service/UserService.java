@@ -24,8 +24,12 @@ public class UserService {
 
     @Transactional
     public Long save(UserRequestDto userRequestDto) throws Exception {
-        userRequestDto.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
-        userRequestDto.setRegNo(encryption.AES_Encode(userRequestDto.getRegNo()));
+        if( userRequestDto.getUserId().equals( userRepository.findByUserId( userRequestDto.getUserId()) ) ) {
+            throw new IllegalArgumentException("아이디가 존재합니다.");
+        } else {
+            userRequestDto.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
+            userRequestDto.setRegNo(encryption.AES_Encode(userRequestDto.getRegNo()));
+        }
         return userRepository.save(userRequestDto.toEntity()).getId();
     }
 
@@ -38,7 +42,7 @@ public class UserService {
     public String checkLogin(Map<String,String> userInfo) {
         UserEntity user = userRepository.findByUserId(userInfo.get("userId"))
                 .orElseThrow(() -> new IllegalArgumentException("가입되지않은 아이디입니다. 회원가입 진행하세요,")  );
-        if( !passwordEncoder.matches(userInfo.get("password")  ,user.getPassword())) {
+        if( !passwordEncoder.matches(userInfo.get("password") ,user.getPassword())) {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
         }
         return jwtTokenProvider.createToken(user.getUserId());

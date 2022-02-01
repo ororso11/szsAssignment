@@ -29,7 +29,6 @@ public class Controller {
     public ResponseEntity<Long> memberSignup( @Valid @RequestBody UserRequestDto userRequestDto ) throws Exception {
         return new ResponseEntity<Long>(userService.save(userRequestDto), HttpStatus.OK);
     }
-
     @Operation(summary = "로그인", description = "로그인을 한다.")
     @PostMapping("/login")
     public String login(@RequestBody Map<String,String> userInfo) {
