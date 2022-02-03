@@ -1,6 +1,5 @@
 package sjs.assignment.sjsassignment.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,6 +10,7 @@ import sjs.assignment.sjsassignment.model.UserEntity;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Collections;
 
 @Getter
 @Setter
@@ -53,6 +53,7 @@ public class UserRequestDto {
                 .password(password)
                 .name(name)
                 .regNo(regNo)
+                .roles(Collections.singletonList("ROLE_USER"))
                 .build();
     }
 

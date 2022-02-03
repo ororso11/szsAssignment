@@ -29,6 +29,7 @@ public class UserService {
         } else {
             userRequestDto.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
             userRequestDto.setRegNo(encryption.AES_Encode(userRequestDto.getRegNo()));
+
         }
         return userRepository.save(userRequestDto.toEntity()).getId();
     }
@@ -45,7 +46,7 @@ public class UserService {
         if( !passwordEncoder.matches(userInfo.get("password") ,user.getPassword())) {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
         }
-        return jwtTokenProvider.createToken(user.getUserId());
+        return jwtTokenProvider.createToken(user.getUserId(), user.getRoles() );
     }
 
 
