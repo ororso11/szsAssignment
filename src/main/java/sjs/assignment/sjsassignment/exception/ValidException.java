@@ -1,4 +1,4 @@
-package sjs.assignment.sjsassignment.config;
+package sjs.assignment.sjsassignment.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class ApiException extends RuntimeException{
+public class ValidException extends RuntimeException{
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleMethodArgumentNotValidException(MethodArgumentNotValidException e){

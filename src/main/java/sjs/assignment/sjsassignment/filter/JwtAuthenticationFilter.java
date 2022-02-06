@@ -3,7 +3,7 @@ package sjs.assignment.sjsassignment.filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import sjs.assignment.sjsassignment.config.JwtTokenProvider;
+import sjs.assignment.sjsassignment.jwt.JwtTokenProvider;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

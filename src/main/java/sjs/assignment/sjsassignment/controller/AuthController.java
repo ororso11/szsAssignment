@@ -6,13 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sjs.assignment.sjsassignment.dto.UserRequestDto;
-import sjs.assignment.sjsassignment.model.UserEntity;
 import sjs.assignment.sjsassignment.service.AuthService;
-import sjs.assignment.sjsassignment.service.UserService;
-
 import javax.validation.Valid;
 import java.util.Map;
-import java.util.Optional;
 
 
 @RestController
@@ -27,11 +23,11 @@ public class AuthController {
     public ResponseEntity<Long> memberSignup( @Valid @RequestBody UserRequestDto userRequestDto ) throws Exception {
         return new ResponseEntity<Long>(authService.save(userRequestDto), HttpStatus.OK);
     }
+
     @Operation(summary = "로그인", description = "로그인을 한다.")
     @PostMapping("/login")
     public String login(@RequestBody Map<String,String> userInfo) {
         return authService.checkLogin(userInfo);
     }
-
 
 }

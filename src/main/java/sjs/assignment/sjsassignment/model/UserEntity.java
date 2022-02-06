@@ -20,7 +20,6 @@ public class UserEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     // 아이디
     private String userId;
@@ -53,7 +52,7 @@ public class UserEntity implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userId;
+        return name;
     }
 
     @Override
