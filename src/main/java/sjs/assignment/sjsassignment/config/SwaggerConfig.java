@@ -33,7 +33,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("삼쩜삼 API 과제 테스트")
-                .description("삼쩜삼 API 과제테스트")
+                .description("삼쩜삼 과제 테스트")
                 .version("1.0")
                 .build();
     }
