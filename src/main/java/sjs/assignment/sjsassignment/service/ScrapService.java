@@ -6,6 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -34,6 +35,7 @@ public class ScrapService {
     private final EntityManager em;
 
     @Transactional
+    @Cacheable(value="test")
     public ResponseEntity<String> getUserScrap( String token, Map<String,String> parma ) {
 
         // 토큰 유효성 및 만료일자 확인
