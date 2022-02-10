@@ -124,9 +124,10 @@ public class ScrapTest {
         userRequestDto.setUserId("ororso11");
         userRequestDto.setRegNo("860824-1655068");
 
+        // 테스트 파라미터 변경
         Map<String,String> userInfo = new LinkedHashMap<>();
-        userInfo.put("name","홍길동123");
-        userInfo.put("regNo", "860824-1655068");
+        userInfo.put("name","김둘리");
+        userInfo.put("regNo", "921108-1582816");
 
         // when
         Long rtn = authService.save(userRequestDto);
