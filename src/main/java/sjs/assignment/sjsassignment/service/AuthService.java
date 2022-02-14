@@ -24,7 +24,7 @@ public class AuthService {
     @Transactional
     public Long save(UserRequestDto userRequestDto) throws Exception {
         encryption = AES256Cipher.getInstance();
-        /** 가입 가능한 유저 정보 토대로 회원가입 진행 */
+        /** 가입 가능한 유저 정보 토대로 회원가입 진행  */
         if( userRequestDto.getName().equals("홍길동") || userRequestDto.getName().equals("김둘리") || userRequestDto.getName().equals("마징가")
                 || userRequestDto.getName().equals("배지터") || userRequestDto.getName().equals("손오공") ) {
             if( userRequestDto.getUserId().equals( userRepository.findByUserId( userRequestDto.getUserId()) ) ) {
