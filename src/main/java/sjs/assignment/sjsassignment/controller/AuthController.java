@@ -20,8 +20,8 @@ public class AuthController {
 
     @Operation(summary = "회원 등록", description = "회원을 등록한다.")
     @PostMapping("/signup")
-    public ResponseEntity<Long> memberSignup( @Valid @RequestBody UserRequestDto userRequestDto ) throws Exception {
-        return new ResponseEntity<Long>(authService.save(userRequestDto), HttpStatus.OK);
+    public Long memberSignup( @Valid @RequestBody UserRequestDto userRequestDto ) throws Exception {
+        return authService.save(userRequestDto);
     }
 
     @Operation(summary = "로그인", description = "로그인을 한다.")
