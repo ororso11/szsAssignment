@@ -39,14 +39,6 @@ public class UserRequestDto {
     @JsonProperty("regNo")
     private String regNo;
 
-    @Builder
-    public UserRequestDto(String userId, String password, String name, String regNo) {
-        this.userId = userId;
-        this.password = password;
-        this.name = name;
-        this.regNo = regNo;
-    }
-
     public UserEntity toEntity() {
         return UserEntity.builder()
                 .userId(userId)
