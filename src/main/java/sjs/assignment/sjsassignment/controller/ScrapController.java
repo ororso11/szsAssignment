@@ -24,7 +24,7 @@ public class ScrapController {
         return apiService.getUserScrap(token,parma);
     }
 
-    @Operation(summary = "유저 환급액 반환", description = "유저의 환급액을 계산합니다.")
+    @Operation(summary = "유저 환급액 반환", description = "유저의 환급액을 계산합니다.   .")
     @GetMapping("/refund")
     public Map<String,String> userRefund( HttpServletRequest request ) throws ParseException {
         String token = request.getHeader("Authorization").replace("Bearer ", "");
