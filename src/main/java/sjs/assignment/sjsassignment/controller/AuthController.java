@@ -15,7 +15,7 @@ import java.util.Map;
 @RequestMapping("/auth/szs")
 @RequiredArgsConstructor
 public class AuthController {
-
+    // 젠장
     private final AuthService authService;
 
     @Operation(summary = "회원 등록", description = "회원을 등록한다.")
